@@ -1,7 +1,42 @@
 1) Crie uma classe para representar carros. 
 Os carros possuem uma marca, uma cor e um gasto médio de combustível por Kilômetro rodado.
-Crie um método que dado a quantidade de quilómetros e o preço do combustível nos dê o valor 
+Crie um método que dado a quantidade de quilometros e o preço do combustível nos dê o valor 
 gasto em reais para realizar este percurso.
+
+//classe
+class Carro {
+    constructor(marca, cor, kmporlitro) {
+        this.marca = marca;
+        this.cor = cor;
+        this.kmporlitro = kmporlitro;
+    }
+
+    //metodo
+    calcularCusto(distancia, precoCombustivel) {
+        const gastoMedio = distancia / this.kmporlitro;
+        const valorTotal = gastoMedio * precoCombustivel;
+        return valorTotal;
+    }
+
+    exibirInfo() {
+        return `${this.marca} ${this.cor} - Consumo: ${this.kmporlitro} km/l`;
+    }
+}
+
+// Dados
+const distancia = 100;
+const precoCombustivel = 5.50;
+
+//objeto
+const meuCarro = new Carro('Nissan', 'Preto', 15);
+
+//Calculo do valor gasto
+valorTotal = meuCarro.calcularCusto(distancia, precoCombustivel);
+
+console.log(meuCarro.exibirInfo());
+console.log(`O valor gasto para percorrer ${distancia} km é R$ ${valorTotal.toFixed(2)}.`);
+
+
 
 
 2) Crie uma classe para representar pessoas.
@@ -9,3 +44,43 @@ Para cada pessoa teremos os atributos nome, peso e altura.
 As pessoas devem ter a capacidade de dizer o valor do seu IMC (IMC = peso / (altura * altura));
 Instancie uma pessoa chamada José que tenha 70kg de peso e 1,75 de altura e peça ao José para dizer o valor
 do seu IMC;
+
+//classe
+class Pessoa {
+    constructor(nome, peso, altura) {
+        this.nome = nome;
+        this.peso = peso;
+        this.altura = altura;       
+    }
+
+    //metodo
+    calcularIMC() {
+        const IMC = this.peso / (this.altura * this.altura)
+        return IMC;
+    }    
+}
+
+// Dados
+const nome = "Jose"
+const peso = 70;
+const altura = 1.70;
+
+//objeto
+const pessoa = new Pessoa (nome, peso, altura);
+
+//Calculo do IMC
+const IMC = pessoa.calcularIMC();
+
+if (IMC < 18.5) {
+    console.log(`IMC: ${IMC.toFixed(2)} - Apresenta Magreza.`);
+} else if (IMC >= 18.5 && IMC < 24.9) {
+    console.log(`IMC: ${IMC.toFixed(2)} - Normal.`);
+} else if (IMC >= 25 && IMC < 29.9) {
+    console.log(`IMC: ${IMC.toFixed(2)} - Apresenta Sobrepeso.`);
+} else if (IMC >= 30 && IMC < 34.9) {
+    console.log(`IMC: ${IMC.toFixed(2)} - Apresenta Obesidade de Grau I.`);
+} else if (IMC >= 35 && IMC < 39.9) {
+    console.log(`IMC: ${IMC.toFixed(2)} - Apresenta Obesidade de Grau II.`);
+} else {
+    console.log(`IMC: ${IMC.toFixed(2)} - Apresenta Obesidade de Grau III.`);
+}
