@@ -36,6 +36,7 @@ imprimirPares(numeros);
 var nomes = ["Ana","Carlos","João","Victor","Vanessa","Vera","Vitoria","Valentina"];
 function imprimirNomesComV(lista) {
     for (var i = 0; i < lista.length; i++) {
+        // charAt(0) verifica o primeiro caractere de uma string
         if (lista[i].charAt(0).toUpperCase() === 'V') {
             console.log(lista[i]);  
         }
